@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios" ; 
+import Card from './Card';
 
 
 const Formulaire = () => {
@@ -10,7 +11,7 @@ const Formulaire = () => {
 }, [])
     return (
       
-            <div className="form-control">
+            <div className="form-component">
               <div className="form-container"></div>  
                 <form>
                     <input type="text" placeholder="Entrez le titre d'un film" id='search-input' />
@@ -22,7 +23,7 @@ const Formulaire = () => {
                     
                     </div>
                     <div className='result'></div>
-                            {moviesData.map((movie) => <h2>{movie.title}</h2> ) }
+                            {moviesData.slice(0,12).map((movie) => <Card key={movie.id} movie={movie}/> ) }
                 </div>
                 
     );
